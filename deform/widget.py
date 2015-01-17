@@ -533,6 +533,7 @@ class TimeInputWidget(Widget):
             kw.get('options') or self.options or self.default_options
             )
         options['formatSubmit'] = 'HH:i'
+        options['hiddenName'] = True
         kw.setdefault('options_json', json.dumps(options))
         values = self.get_template_values(field, cstruct, kw)
         return field.renderer(template, **values)
@@ -593,6 +594,7 @@ class DateInputWidget(Widget):
             kw.get('options') or self.options or self.default_options
             )
         options['formatSubmit'] = 'yyyy-mm-dd'
+        options['hiddenName'] = True
         kw.setdefault('options_json', json.dumps(options))
         values = self.get_template_values(field, cstruct, kw)
         return field.renderer(template, **values)
@@ -683,6 +685,7 @@ class DateTimeInputWidget(Widget):
             self.default_date_options
             )
         date_options['formatSubmit'] = 'yyyy-mm-dd'
+        date_options['hiddenName'] = True
         kw['date_options_json'] = json.dumps(date_options)
 
         time_options = dict(
@@ -690,6 +693,7 @@ class DateTimeInputWidget(Widget):
             self.default_time_options
             )
         time_options['formatSubmit'] = 'HH:i'
+        time_options['hiddenName'] = True
         kw['time_options_json'] = json.dumps(time_options)
         
         values = self.get_template_values(field, cstruct, kw)
